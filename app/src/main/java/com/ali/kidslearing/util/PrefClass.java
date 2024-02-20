@@ -84,6 +84,16 @@ public class PrefClass {
 		edit.commit();
 	}
 
+	public static void setUserName(String name){
+		edit.putString("username", name);
+		edit.commit();
+	}
+
+	public static String getUserName() {
+		return pref.getString("username", "");
+	}
+
+
 	public static boolean getMedia() {
 		return pref.getBoolean("MEDIA", false);
 	}

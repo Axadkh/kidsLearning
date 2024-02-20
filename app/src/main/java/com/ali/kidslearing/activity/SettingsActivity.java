@@ -15,11 +15,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ali.kidslearing.R;
 import com.ali.kidslearing.util.BackgroundSoundService;
+import com.ali.kidslearing.util.Const;
 import com.ali.kidslearing.util.PrefClass;
+import com.ali.kidslearing.util.PrefHelper;
 import com.ali.kidslearing.util.PrefUtils;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
@@ -41,6 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
     String name;
     ImageView imgRateUs;
     ImageView imgShare;
+    TextView nameTv;
     ImageView sound;
     ImageView music;
     AdView adView;
@@ -57,7 +62,12 @@ public class SettingsActivity extends AppCompatActivity {
             Window w = getWindow(); // in Activity's onCreate() for instance
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+
+       String name =  PrefHelper.getPrefHelper(SettingsActivity.this).getString(Const.userName,"");
+
         adView = findViewById(R.id.ad_view);
+        nameTv = findViewById(R.id.tvNae);
+        nameTv.setText(name);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 

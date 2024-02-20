@@ -14,6 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ali.kidslearing.MainActivity;
 import com.ali.kidslearing.R;
+import com.ali.kidslearing.util.Const;
+import com.ali.kidslearing.util.PrefClass;
+import com.ali.kidslearing.util.PrefHelper;
+import com.ali.kidslearing.util.SharedPreferencesHelper;
+import com.ali.kidslearing.util.SharedPreferencesSingleton;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -73,10 +78,18 @@ public class SplashActivity extends AppCompatActivity {
                 if (interstitial.isLoaded()) {
                     interstitial.show();
                 } else {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
-                    finish();
+
+                    if(PrefHelper.getPrefHelper(SplashActivity.this).getString(Const.userName,"").isEmpty()){
+                        Intent intent = new Intent(SplashActivity.this, NameActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
             }
         }, 4000);

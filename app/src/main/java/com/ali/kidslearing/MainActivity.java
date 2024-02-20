@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity  {
 
     ImageView numId = null;
     ImageView fruitId = null;
-    ImageView shapeId = null;
+    ImageView animal = null;
     ImageView alphabetId = null;
     ImageButton monthBtn = null;
     ImageButton weekBtn = null;
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.taw_activity_main);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
             Window w = getWindow(); // in Activity's onCreate() for instance
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity  {
         Glide.with(getApplicationContext())
                 .load(R.drawable.kids_gif)
                 .into(ivKids);
+
         numId = findViewById(R.id.numId);
         Glide.with(getApplicationContext())
                 .load(R.drawable.num)
@@ -97,10 +98,11 @@ public class MainActivity extends AppCompatActivity  {
         Glide.with(getApplicationContext())
                 .load(R.drawable.fruit_gif)
                 .into(fruitId);
-        shapeId = findViewById(R.id.shape_id);
+        animal = findViewById(R.id.animal_id);
         Glide.with(getApplicationContext())
                 .load(R.drawable.animal_gif)
-                .into(shapeId);
+                .into(animal);
+
         alphabetId = findViewById(R.id.alphabetId);
         Glide.with(getApplicationContext())
                 .load(R.drawable.alpha_gif)
@@ -156,17 +158,14 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 });
 
-
-
-                shapeId.setOnClickListener(new View.OnClickListener() {
+        animal.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent animalIntent = new Intent(MainActivity.this, FruitsActivity.class);
-                        animalIntent.putExtra("type", ResourcePool.shape);
+                        animalIntent.putExtra("type", ResourcePool.animal);
                         startActivity(animalIntent);
                     }
                 });
-
 
                 comunityhelp.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -177,8 +176,6 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 });
 
-
-
                 veg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -187,9 +184,6 @@ public class MainActivity extends AppCompatActivity  {
                         startActivity(iveg);
                     }
                 });
-
-
-
 
                 vihical.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -243,8 +237,6 @@ public class MainActivity extends AppCompatActivity  {
                         startActivity(shape);
                     }
                 });
-
-
 
                 color.setOnClickListener(new View.OnClickListener() {
                     @Override

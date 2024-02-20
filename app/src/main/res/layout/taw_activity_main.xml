@@ -130,7 +130,7 @@
                             android:src="@drawable/shape_back" />
 
                         <ImageView
-                            android:id="@+id/shape_id"
+                            android:id="@+id/animal_id"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="5dp" />
