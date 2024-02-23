@@ -1,6 +1,7 @@
 package com.ali.kidslearing;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -17,6 +18,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.ali.kidslearing.activity.MathActivity;
+import com.ali.kidslearing.activity.MathExceriseActivity;
 import com.ali.kidslearing.activity.SettingsActivity;
 import com.ali.kidslearing.util.BackgroundSoundService;
 import com.ali.kidslearing.util.MusicManager;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity  {
     ImageButton monthBtn = null;
     ImageButton weekBtn = null;
     ImageView ivKids;
+    CardView cvMath;
+    CardView cvMathExc;
     ImageView comunityhelp;
     ImageView veg;
     ImageView vihical;
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
     ImageView month;
     ImageView body;
     MusicManager music_manager;
-    private AdView adView;
+   // private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +63,6 @@ public class MainActivity extends AppCompatActivity  {
 
             Window w = getWindow(); // in Activity's onCreate() for instance
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                //dosomething
-            }
-        });
-
-        adView = findViewById(R.id.ad_view);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
         music_manager = new MusicManager(getApplicationContext());
 
@@ -115,6 +108,8 @@ public class MainActivity extends AppCompatActivity  {
         day = findViewById(R.id.day);
         month = findViewById(R.id.month);
         body = findViewById(R.id.body);
+        cvMath = findViewById(R.id.cvMath);
+        cvMathExc = findViewById(R.id.cvMathExc);
         monthBtn = (ImageButton)findViewById(R.id.monthId);
         weekBtn = (ImageButton)findViewById(R.id.weekId);
 
@@ -184,6 +179,28 @@ public class MainActivity extends AppCompatActivity  {
                         startActivity(iveg);
                     }
                 });
+
+        cvMath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iveg = new Intent(MainActivity.this, MathActivity.class);
+                startActivity(iveg);
+            }
+        });
+
+        cvMathExc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iveg = new Intent(MainActivity.this, MathExceriseActivity.class);
+                startActivity(iveg);
+            }
+        });
+
+
+
+
+
+
 
                 vihical.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -308,9 +325,7 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
+
         Log.e("0011", "onPause: 12");
         Intent svc = new Intent(this, BackgroundSoundService.class);
         svc.putExtra("isPlay", false);
@@ -334,17 +349,13 @@ public class MainActivity extends AppCompatActivity  {
             svc.putExtra("isPlay", false);
             startService(svc);
         }
-        if (adView != null) {
-            adView.resume();
-        }
+
     }
 
     /** Called before the activity is destroyed */
     @Override
     public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
+
         Log.e("0011", "onDestroy: 12");
         Intent svc = new Intent(this, BackgroundSoundService.class);
         svc.putExtra("isPlay", false);

@@ -1,0 +1,21 @@
+<!-- res/drawable/rectangle_with_border_and_corners.xml -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color for the rectangle -->
+    <item android:drawable="@android:color/transparent" />
+
+    <!-- Border for the rectangle -->
+    <item
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp"
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" /> <!-- Adjust the radius for rounded corners -->
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/holo_red_dark" />
+        </shape>
+    </item>
+</layer-list>
