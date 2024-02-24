@@ -20,6 +20,7 @@ import android.widget.ImageView;
 
 import com.ali.kidslearing.activity.MathActivity;
 import com.ali.kidslearing.activity.MathExceriseActivity;
+import com.ali.kidslearing.activity.ProfileActivity;
 import com.ali.kidslearing.activity.SettingsActivity;
 import com.ali.kidslearing.util.BackgroundSoundService;
 import com.ali.kidslearing.util.MusicManager;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity  {
     CardView cvMath;
     CardView cvMathExc;
     ImageView comunityhelp;
+    ImageView profileButton;
     ImageView veg;
     ImageView vihical;
     ImageView shape;
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity  {
                 .into(alphabetId);
         comunityhelp = findViewById(R.id.comunityhelp);
         veg = findViewById(R.id.veg);
+        profileButton = findViewById(R.id.profileButton);
         vihical = findViewById(R.id.vihical);
         shape = findViewById(R.id.shape);
         color = findViewById(R.id.color);
@@ -136,7 +139,13 @@ public class MainActivity extends AppCompatActivity  {
         });
 
 
-
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(i);
+            }
+        });
 
         onClick();
     }

@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
     String name;
     ImageView imgRateUs;
     ImageView imgShare;
-    TextView nameTv;
+
     ImageView sound;
     ImageView music;
     AdView adView;
@@ -63,11 +63,9 @@ public class SettingsActivity extends AppCompatActivity {
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
-       String name =  PrefHelper.getPrefHelper(SettingsActivity.this).getString(Const.userName,"");
 
         adView = findViewById(R.id.ad_view);
-        nameTv = findViewById(R.id.tvNae);
-        nameTv.setText(name);
+
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 

@@ -45,6 +45,7 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
         return data.size();
     }
 
+    private boolean isClicked = false;
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView no1,symbol,no2,ans1,ans2,ans3;
@@ -76,8 +77,9 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(item.getAns().getAns1() == item.getAns().getCorrect());
-
+                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
+                        onItemClickListener.onItemClick(item.getAns().getAns1() == item.getAns().getCorrect());
+                    }
                 }
             });
 
@@ -85,7 +87,9 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(item.getAns().getAns2() == item.getAns().getCorrect());
+                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
+                        onItemClickListener.onItemClick(item.getAns().getAns2() == item.getAns().getCorrect());
+                    }
                 }
             });
 
@@ -93,8 +97,9 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(item.getAns().getAns3() == item.getAns().getCorrect());
-
+                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
+                        onItemClickListener.onItemClick(item.getAns().getAns3() == item.getAns().getCorrect());
+                    }
                 }
             });
         }
