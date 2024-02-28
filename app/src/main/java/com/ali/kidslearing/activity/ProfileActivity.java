@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import java.util.Collections;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
+ImageView avater;
     SharedPreferencesHelper sp;
     RecyclerView quizRv;
     TextView tvname;
@@ -39,6 +40,13 @@ public class ProfileActivity extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setAdapter();
+
+        if(sp.getString(Const.gender,"").equals("male")){
+            avater.setImageDrawable(getResources().getDrawable(R.drawable.male));
+        }
+        else{
+            avater.setImageDrawable(getResources().getDrawable(R.drawable.female));
+        }
 
     }
 
@@ -60,7 +68,9 @@ public class ProfileActivity extends AppCompatActivity {
        ArrayList<String> list = new ArrayList<>();
 
        for (String s : quizAr){
-           list.add(s);
+           if(!s.isEmpty()) {
+               list.add(s);
+           }
        }
         Collections.reverse(list);
 
@@ -68,6 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public  void initUi(){
         tvname = findViewById(R.id.name);
+        avater = findViewById(R.id.imageView);
         quizRv = findViewById(R.id.quizRv);
 
 

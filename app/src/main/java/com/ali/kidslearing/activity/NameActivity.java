@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class NameActivity extends AppCompatActivity {
     boolean vibration;
     EditText etUserName;
     RelativeLayout btn;
+    ImageView ivMale,ivFemale;
     SharedPreferences preferences;
     @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,9 @@ public class NameActivity extends AppCompatActivity {
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         etUserName = findViewById(R.id.editText);
+        ivMale = findViewById(R.id.ivMale);
+        ivFemale = findViewById(R.id.ivFemale);
+
         btn = findViewById(R.id.rvSubmitNam);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +55,35 @@ public class NameActivity extends AppCompatActivity {
 
 
                     PrefHelper.getPrefHelper(NameActivity.this).saveString(Const.userName,etUserName.getText().toString());
+                    String gender =PrefHelper.getPrefHelper(NameActivity.this).getString(Const.gender,"");
+                    if(gender.isEmpty()){
+                        PrefHelper.getPrefHelper(NameActivity.this).saveString(Const.gender,"male");
+                    }
+
+
+
                     Intent intent = new Intent(NameActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        ivFemale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PrefHelper.getPrefHelper(NameActivity.this).saveString(Const.gender,"female");
+                ivFemale.setAlpha(0.70f);
+                ivMale.setAlpha(1.f);
+            }
+        });
+
+        ivMale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PrefHelper.getPrefHelper(NameActivity.this).saveString(Const.gender,"male");
+                ivMale.setAlpha(0.70f);
+                ivFemale.setAlpha(1.f);
             }
         });
 

@@ -152,8 +152,8 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.pluse,
                         R.drawable.three,
                         new Ans(R.drawable.six,
-                                R.drawable.five,
                                 R.drawable.four,
+                                R.drawable.five,
                                 R.drawable.four
                         )));
 
@@ -162,9 +162,10 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.five, //5
                         R.drawable.pluse,
                         R.drawable.three, // 3
-                        new Ans(R.drawable.seven,
-                                R.drawable.nine,
+                        new Ans(
                                 R.drawable.eight,
+                                R.drawable.seven,
+                                R.drawable.nine,
                                 R.drawable.eight
                         )));
 
@@ -175,8 +176,8 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.pluse,
                         R.drawable.three,
                         new Ans(R.drawable.eight,
-                                R.drawable.five,
                                 R.drawable.six,
+                                R.drawable.five,
                                 R.drawable.six
                         )));
 
@@ -186,8 +187,8 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.pluse,
                         R.drawable.one,
                         new Ans(R.drawable.five,
-                                R.drawable.six,
                                 R.drawable.seven,
+                                R.drawable.six,
                                 R.drawable.seven
                         )));
 
@@ -196,9 +197,9 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.six,
                         R.drawable.pluse,
                         R.drawable.three,
-                        new Ans(R.drawable.seven,
+                        new Ans( R.drawable.nine,
+                                R.drawable.seven,
                                 R.drawable.eight,
-                                R.drawable.nine,
                                 R.drawable.nine
                         )));
 
@@ -214,8 +215,8 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.minus_blue,
                         R.drawable.one,
                         new Ans(R.drawable.six,
-                                R.drawable.three,
                                 R.drawable.four,
+                                R.drawable.three,
                                 R.drawable.four
                         )));
 
@@ -226,8 +227,8 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.minus_purpol,
                         R.drawable.three,
                         new Ans(R.drawable.one,
-                                R.drawable.six,
                                 R.drawable.zero,
+                                R.drawable.six,
                                 R.drawable.zero
                         )));
 
@@ -248,9 +249,10 @@ public class MathExceriseActivity extends AppCompatActivity {
                         R.drawable.four,
                         R.drawable.minus_blue,
                         R.drawable.one,
+
                         new Ans(R.drawable.six,
-                                R.drawable.five,
                                 R.drawable.three,
+                                R.drawable.five,
                                 R.drawable.three
                         )));
 

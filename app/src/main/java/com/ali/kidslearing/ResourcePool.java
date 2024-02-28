@@ -147,10 +147,10 @@ public class ResourcePool {
 			R.drawable.animal_06, R.drawable.animal_07, R.drawable.animal_08,
 			R.drawable.animal_09, R.drawable.animal_10 };
 
-	Integer[] animalSound = { R.raw.animal_s_01, R.raw.animal_s_02,
-			R.raw.animal_s_03, R.raw.animal_s_04, R.raw.animal_s_05,
-			R.raw.animal_s_06, R.raw.animal_s_07, R.raw.animal_s_08,
-			R.raw.animal_s_09, R.raw.animal_s_10 };
+	Integer[] animalSound = { R.raw.tiger, R.raw.lion,
+			R.raw.synthesize, R.raw.horse, R.raw.deer,
+			R.raw.beer, R.raw.giraffe, R.raw.camel,
+			R.raw.zebra, R.raw.jackle };
 
 	Integer[] numberImages = { R.drawable.img_number_symbol_eng_01,
 			R.drawable.img_number_symbol_eng_02,

@@ -43,24 +43,30 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView no1,symbol,no2,ans;
+        ImageView no1,no1f,symbol,no2,no2f,ans,ansf;
         private TextView textView;
 
         public MyViewHolder(View v) {
             super(v);
             no1 = v.findViewById(R.id.no1);
+            no1f = v.findViewById(R.id.no1f);
             symbol = v.findViewById(R.id.symbol);
             no2 = v.findViewById(R.id.no2);
+            no2f = v.findViewById(R.id.no2f);
             ans = v.findViewById(R.id.ans);
+            ansf = v.findViewById(R.id.ansf);
         }
 
         @SuppressLint("UseCompatLoadingForDrawables")
         public void bind(MathModel item) {
 
             no1.setImageDrawable(itemView.getContext().getDrawable(item.getNo1()));
+            no1f.setImageDrawable(itemView.getContext().getDrawable(item.getNo1f()));
             symbol.setImageDrawable(itemView.getContext().getDrawable(item.getSymbol()));
             no2.setImageDrawable(itemView.getContext().getDrawable(item.getNo2()));
+            no2f.setImageDrawable(itemView.getContext().getDrawable(item.getNo2f()));
             ans.setImageDrawable(itemView.getContext().getDrawable(item.getAns()));
+            ansf.setImageDrawable(itemView.getContext().getDrawable(item.getAnsf()));
 
 
         }

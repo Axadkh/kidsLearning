@@ -63,77 +63,117 @@ public class MathActivity extends AppCompatActivity {
         items.add(
                 new MathModel(
                         R.drawable.one,
+                        R.drawable.onef,
                         R.drawable.pluse,
                         R.drawable.three,
-                        R.drawable.four));
+                        R.drawable.threef,
+                        R.drawable.four,
+                        R.drawable.fourf
+                ));
 
         items.add(
                 new MathModel(
                         R.drawable.four,
+                        R.drawable.fourf,
                         R.drawable.pluse,
                         R.drawable.five,
-                        R.drawable.nine));
+                        R.drawable.fivef,
+                        R.drawable.nine,
+                        R.drawable.ninef
+                ));
 
 
         items.add(
                 new MathModel(
                         R.drawable.three,
+                        R.drawable.threef,
                         R.drawable.pluse,
                         R.drawable.three,
-                        R.drawable.six));
+                        R.drawable.threef,
+                        R.drawable.six,
+                        R.drawable.sixef
+                ));
 
         items.add(
                 new MathModel(
                         R.drawable.six,
+                        R.drawable.sixef,
                         R.drawable.pluse,
                         R.drawable.one,
-                        R.drawable.seven));
+                        R.drawable.onef,
+                        R.drawable.seven,
+                        R.drawable.sevenf
+                ));
 
         items.add(
                 new MathModel(
                         R.drawable.eight,
+                        R.drawable.eightf,
                         R.drawable.pluse,
                         R.drawable.one,
-                        R.drawable.nine));
+                        R.drawable.onef,
+                        R.drawable.nine,
+                        R.drawable.ninef
+                ));
 
 
         items.add(
                 new MathModel(
                         R.drawable.five,
+                        R.drawable.fivef,
                         R.drawable.minus_blue,
                         R.drawable.one,
-                        R.drawable.four));
+                        R.drawable.onef,
+                        R.drawable.four,
+                        R.drawable.fourf
+                ));
 
 
         items.add(
                 new MathModel(
                         R.drawable.seven,
+                        R.drawable.sevenf,
                         R.drawable.minus_purpol,
                         R.drawable.three,
-                        R.drawable.four));
+                        R.drawable.threef,
+                        R.drawable.four,
+                        R.drawable.fourf
+                ));
 
         items.add(
                 new MathModel(
                         R.drawable.eight,
+                        R.drawable.eightf,
                         R.drawable.minus_purpol,
                         R.drawable.four,
-                        R.drawable.four));
+                        R.drawable.fourf,
+                        R.drawable.four,
+                        R.drawable.fourf
+                ));
 
 
         items.add(
                 new MathModel(
                         R.drawable.four,
+                        R.drawable.fourf,
                         R.drawable.minus_blue,
                         R.drawable.one,
-                        R.drawable.three));
+                        R.drawable.onef,
+                        R.drawable.three,
+                        R.drawable.threef
+                ));
 
 
         items.add(
                 new MathModel(
                         R.drawable.five,
+                        R.drawable.fivef,
                         R.drawable.minus_blue,
                         R.drawable.four,
-                        R.drawable.one));
+                        R.drawable.fourf,
+                        R.drawable.one,
+                        R.drawable.onef
+                ));
 
 
         return     items;
