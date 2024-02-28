@@ -148,7 +148,7 @@ public class ResourcePool {
 			R.drawable.animal_09, R.drawable.animal_10 };
 
 	Integer[] animalSound = { R.raw.tiger, R.raw.lion,
-			R.raw.synthesize, R.raw.horse, R.raw.deer,
+			R.raw.horse,R.raw.synthesize,  R.raw.deer,
 			R.raw.beer, R.raw.giraffe, R.raw.camel,
 			R.raw.zebra, R.raw.jackle };
 
