@@ -21,6 +21,7 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
 
     private OnItemClickListener onItemClickListener;
     private Context context;
+    private boolean enableClick = true;
 
     public ExcriseAdapter(Context context, List<ExcriseModel> data,OnItemClickListener onItemClickListener) {
         this.context = context;
@@ -32,6 +33,11 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_excrise, parent, false);
         return new MyViewHolder(view);
+    }
+
+    public void enableClick(){
+        enableClick = true;
+
     }
 
     @Override
@@ -77,8 +83,13 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
-                        onItemClickListener.onItemClick(item.getAns().getAns1() == item.getAns().getCorrect());
+                    if (enableClick) {
+                        if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+                            enableClick  =false;
+                            boolean isCorrect = item.getAns().getAns1() == item.getAns().getCorrect();
+                            highlight(ans1, isCorrect);
+                            onItemClickListener.onItemClick(isCorrect);
+                        }
                     }
                 }
             });
@@ -87,8 +98,13 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
-                        onItemClickListener.onItemClick(item.getAns().getAns2() == item.getAns().getCorrect());
+                    if(enableClick) {
+                        if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+                            enableClick = false;
+                            boolean isCorrect = item.getAns().getAns2() == item.getAns().getCorrect();
+                            highlight(ans2, isCorrect);
+                            onItemClickListener.onItemClick(isCorrect);
+                        }
                     }
                 }
             });
@@ -97,14 +113,26 @@ public class ExcriseAdapter extends RecyclerView.Adapter<ExcriseAdapter.MyViewHo
             ans3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(getAdapterPosition() != RecyclerView.NO_POSITION) {
-                        onItemClickListener.onItemClick(item.getAns().getAns3() == item.getAns().getCorrect());
+                    if(enableClick) {
+                        if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+                            enableClick = false;
+                            boolean isCorrect = item.getAns().getAns3() == item.getAns().getCorrect();
+                            highlight(ans3, isCorrect);
+                            onItemClickListener.onItemClick(isCorrect);
+                        }
                     }
                 }
             });
         }
     }
 
+    public void highlight(ImageView image,boolean isCorrect){
+        if(isCorrect){
+            image.setBackgroundColor(image.getContext().getColor(R.color.green));
+        }else{
+            image.setBackgroundColor(image.getContext().getColor(R.color.red));
+        }
+    }
 
     public static int getRandomBorder() {
         int[] staticIntArray = {R.drawable.red_border, R.drawable.blue_border, R.drawable.green_border};

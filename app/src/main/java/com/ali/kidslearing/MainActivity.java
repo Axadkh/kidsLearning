@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity  {
     ImageButton weekBtn = null;
     ImageView ivKids;
     CardView cvMath;
+    CardView cvMinus;
     CardView cvMathExc;
     ImageView comunityhelp;
     ImageView profileButton;
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity  {
         month = findViewById(R.id.month);
         body = findViewById(R.id.body);
         cvMath = findViewById(R.id.cvMath);
+        cvMinus = findViewById(R.id.cvMinus);
         cvMathExc = findViewById(R.id.cvMathExc);
         monthBtn = (ImageButton)findViewById(R.id.monthId);
         weekBtn = (ImageButton)findViewById(R.id.weekId);
@@ -200,10 +202,21 @@ public class MainActivity extends AppCompatActivity  {
         cvMathExc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iveg = new Intent(MainActivity.this, MathExceriseActivity.class);
-                startActivity(iveg);
+                Intent intent = new Intent(MainActivity.this, MathExceriseActivity.class);
+                intent.putExtra("for","add");
+                startActivity(intent);
             }
         });
+
+        cvMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MathExceriseActivity.class);
+                intent.putExtra("for","sub");
+                startActivity(intent);
+            }
+        });
+
 
 
 

@@ -46,7 +46,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     val lottieVersion = "3.4.0"
     implementation("com.airbnb.android:lottie:$lottieVersion")
-
+    implementation("com.google.code.gson:gson:2.10.1")
 
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.annotation:annotation:1.0.0")

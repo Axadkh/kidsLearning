@@ -25,12 +25,17 @@ import com.ali.kidslearing.util.Const;
 import com.ali.kidslearing.util.PrefHelper;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MathExceriseActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
+
+    ArrayList<ExcriseModel> questionList = new ArrayList<>();
     private MediaPlayer mp = null;
     private ExcriseAdapter adapter;
     private boolean isOnProgress = false;
+    private boolean isForAddition = true;
     private int currentPosition = 0;
     private  int correctCount = 0;
     @Override
@@ -40,9 +45,18 @@ public class MathExceriseActivity extends AppCompatActivity {
         Window w = getWindow();
 
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+        if(getIntent().getStringExtra("for").equals("add")){
+            isForAddition = true;
+        }else{
+            isForAddition = false;
+        }
+
+
         mp = MediaPlayer.create(MathExceriseActivity.this, R.raw.click);
         recyclerView = findViewById(R.id.recyclerView);
         initAdapter();
+
 
 
 
@@ -58,7 +72,18 @@ public class MathExceriseActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new ExcriseAdapter(this, getMath(), new OnItemClickListener() {
+        questionList.clear();
+      if(isForAddition){
+          questionList.addAll(getAdd());
+      }
+      else {
+          questionList.addAll(getSub());
+      }
+
+        Collections.shuffle(questionList);
+
+
+        adapter = new ExcriseAdapter(this, questionList, new OnItemClickListener() {
             @Override
             public void onItemClick(boolean isCorrect) {
                 if(!isOnProgress) {
@@ -68,14 +93,23 @@ public class MathExceriseActivity extends AppCompatActivity {
                         correctCount++;
                     }
                     if (currentPosition < adapter.getItemCount() - 1) {
-                        currentPosition++;
-                        recyclerView.scrollToPosition(currentPosition);
+                        nextDelay();
+
+
                     } else {
-                        PrefHelper.getPrefHelper(MathExceriseActivity.this).saveInt(Const.mathTest, correctCount);
+
+                        String test =PrefHelper.getPrefHelper(MathExceriseActivity.this).getString(Const.mathTest, "");
+
+                    if(test.isEmpty()){
+                        test = correctCount+"";
+                    }else{
+                        test  = test +","+correctCount;
+                    }
+                        PrefHelper.getPrefHelper(MathExceriseActivity.this).saveString(Const.mathTest, test);
 
                         Intent i = new Intent(MathExceriseActivity.this, ResultActivity.class);
                         i.putExtra("correct", correctCount);
-                        i.putExtra("total", getMath().size());
+                        i.putExtra("total", questionList.size());
                         startActivity(i);
                         finish();
                     }
@@ -96,7 +130,21 @@ public class MathExceriseActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<ExcriseModel> getMath(){
+    public void nextDelay(){
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adapter.enableClick();
+                currentPosition++;
+                recyclerView.scrollToPosition(currentPosition);
+            }
+        }, 2000);
+    }
+
+
+
+    private ArrayList<ExcriseModel> getAdd(){
         ArrayList<ExcriseModel> items  = new  ArrayList<ExcriseModel>();
         items.add(
                 new ExcriseModel(
@@ -154,6 +202,11 @@ public class MathExceriseActivity extends AppCompatActivity {
                                 R.drawable.nine
                         )));
 
+        return     items;
+    }
+
+    private ArrayList<ExcriseModel> getSub(){
+        ArrayList<ExcriseModel> items  = new  ArrayList<ExcriseModel>();
 
         items.add(
                 new ExcriseModel(
@@ -211,7 +264,7 @@ public class MathExceriseActivity extends AppCompatActivity {
                                 R.drawable.three,
                                 R.drawable.nine,
                                 R.drawable.one
-                                )));
+                        )));
 
 
         return     items;

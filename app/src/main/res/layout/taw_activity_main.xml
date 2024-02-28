@@ -18,8 +18,8 @@
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:gravity="center"
             android:layout_marginTop="50dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -47,8 +47,8 @@
                 <ImageButton
                     android:id="@+id/imageButton2"
                     android:layout_width="52dp"
-                    android:layout_alignParentStart="true"
                     android:layout_height="52dp"
+                    android:layout_alignParentStart="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
@@ -57,22 +57,51 @@
                     android:padding="10dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/set" />
+                <TextView
+
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="Setting"
+                    android:layout_marginTop="-3dp"
+                    android:padding="5dp"
+                    android:background="@drawable/fab"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/imageButton2"
+                    android:layout_height="wrap_content"/>
 
 
                 <ImageButton
-                    android:layout_alignParentEnd="true"
                     android:id="@+id/profileButton"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/fab"
                     android:elevation="15dp"
                     android:padding="10dp"
-                    android:layout_gravity="end"
                     android:scaleType="fitCenter"
                     android:src="@drawable/baseline_manage_accounts_24" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:text="Profile"
+                    android:layout_marginTop="-3dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/fab"
+                    android:textColor="@color/black"
+                   android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+
+                    android:layout_below="@+id/profileButton"
+                    android:layout_height="wrap_content"/>
             </RelativeLayout>
         </RelativeLayout>
 
@@ -81,12 +110,11 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:paddingBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/iv_btn2"
                 android:orientation="vertical"
-                >
+                android:paddingBottom="20dp">
 
                 <LinearLayout
                     android:id="@+id/first_type"
@@ -228,6 +256,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -382,60 +411,80 @@
 
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="110dp"
                         android:id="@+id/cvMath"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
                         android:elevation="0dp"
-                        app:cardCornerRadius="30dp"
-                        android:layout_height="110dp"
-                        android:layout_weight="1">
+                        app:cardCornerRadius="30dp">
 
                         <ImageView
-                            android:scaleType="fitXY"
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:scaleType="fitXY"
                             android:src="@drawable/math" />
-
 
 
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="110dp"
                         android:id="@+id/cvMathExc"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="1"
                         android:layout_marginStart="10dp"
                         android:elevation="0dp"
-                        app:cardCornerRadius="30dp"
-                        android:layout_height="110dp"
-                        android:layout_weight="1">
+                        app:cardCornerRadius="30dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:scaleType="fitXY"
-
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/mathtest" />
+                                android:scaleType="fitXY"
+                                android:src="@drawable/pluse_back" />
 
-<TextView
-    android:layout_width="match_parent"
-    android:text="Test"
-    android:textStyle="bold"
-    android:padding="5dp"
-    android:textSize="16sp"
-    android:gravity="center_horizontal"
-    android:background="@android:color/holo_orange_dark"
-    android:textColor="@color/black"
-    android:layout_alignParentBottom="true"
-    android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:background="@android:color/holo_orange_dark"
+                                android:gravity="center_horizontal"
+                                android:padding="5dp"
+                                android:text="Addition"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
                         </RelativeLayout>
 
 
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvMinus"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="30dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/minus_back" />
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
@@ -487,7 +536,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>
